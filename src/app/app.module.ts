@@ -3,11 +3,14 @@ import { environment } from 'src/environments/environment';
 
 // @angular/fire Imports
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getAuth, provideAuth, connectAuthEmulator } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore'
 
 // Angular Reactive Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule, NgFor } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
 
 @NgModule({
   imports: [
@@ -16,6 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
+  ],
+  providers: [
+    CommonModule
   ]
 })
 
