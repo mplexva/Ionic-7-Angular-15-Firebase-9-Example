@@ -24,7 +24,7 @@ interface Message {
 })
 export class Tab1Page implements OnDestroy {
 
-  message_text = new FormControl('', [Validators.required, Validators.minLength(3)])
+  message_text = new FormControl('', [Validators.required, Validators.minLength(1)])
 
   private auth: Auth = inject(Auth);
   private user$ = user(this.auth);

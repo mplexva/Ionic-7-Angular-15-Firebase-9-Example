@@ -31,6 +31,6 @@
 <ion-footer>
     <ion-item>
         <ion-input label="New Message" labelPlacement="stacked" [formControl]="message_text"></ion-input>
-        <ion-button (click)="addMessage()"><ion-icon name="send-outline"></ion-icon></ion-button>
+        <ion-button [disabled]="message_text.invalid" (click)="addMessage()"><ion-icon name="send-outline"></ion-icon></ion-button>
     </ion-item>
 </ion-footer>
