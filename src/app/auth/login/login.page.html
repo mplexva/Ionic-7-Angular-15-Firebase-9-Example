@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Firebase Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="loginForm">
+
+    <ion-list lines="none">
+      <ion-item>
+        <ion-input id="email" label="Email" type="text" formControlName="email" [errorText]="emailError"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input id="password" label="Password" type="password" formControlName="password" [errorText]="passwordError"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="loginEmail()">Login</ion-button><ion-button (click)="signupEmail()">Sign Up</ion-button>
+      </ion-item>
+    </ion-list>
+  
+  </form>
+
+</ion-content>
