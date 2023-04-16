@@ -9,6 +9,7 @@ import { UserCredential, AuthError } from '@angular/fire/auth';
 
 // Angular Form Control
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +34,8 @@ export class LoginPage implements OnInit {
   });
 
   constructor(
-    private toastController: ToastController
+    private toastController: ToastController,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -67,7 +69,7 @@ export class LoginPage implements OnInit {
       .then((userCredential: UserCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log(user)
+        if (user) this.router.navigateByUrl('/tabs')
       })
       .catch((error: AuthError) => {
         if (error.code == 'auth/user-not-found') {

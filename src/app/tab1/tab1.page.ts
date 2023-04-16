@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-tab1',
@@ -11,6 +12,12 @@ import { CommonModule } from '@angular/common';
 })
 export class Tab1Page {
 
+  private authService = inject(AuthService);
 
+  constructor() {}
+
+  public logout() {
+    this.authService.signOut()
+  }
 
 }

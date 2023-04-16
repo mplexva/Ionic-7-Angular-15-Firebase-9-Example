@@ -21,6 +21,7 @@ interface UserProfile {
 export class UsersPage implements OnInit {
 
   private firestore: Firestore = inject(Firestore);
+
   users$: Observable<UserProfile[]>;
   usersCollection: CollectionReference;
 
@@ -30,9 +31,6 @@ export class UsersPage implements OnInit {
 
     // get documents (data) from the collection using collectionData
     this.users$ = collectionData(this.usersCollection) as Observable<UserProfile[]>;
-    this.users$.subscribe(users => {
-      console.log(users)
-    })
   }
 
   ngOnInit() {

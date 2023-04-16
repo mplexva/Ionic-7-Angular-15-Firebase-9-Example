@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, UserCredential } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,9 @@ export class AuthService {
 
   private auth: Auth = inject(Auth);
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) {}
 
   public sign_in_with_email_pass(email: string, password: string): Promise<UserCredential>  {
     return signInWithEmailAndPassword(this.auth, email, password)
@@ -16,6 +19,11 @@ export class AuthService {
 
   public sign_up_with_email_pass(email: string, password: string): Promise<UserCredential> {
     return createUserWithEmailAndPassword(this.auth, email, password)
+  }
+
+  public signOut() {
+    signOut(this.auth)
+    this.router.navigateByUrl('/login')
   }
 
 }

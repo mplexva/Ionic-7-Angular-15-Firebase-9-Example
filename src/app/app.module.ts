@@ -8,9 +8,9 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore'
 
 // Angular Reactive Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule, NgFor } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
+
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   imports: [
